@@ -1,0 +1,65 @@
+#include <iostream>
+#include "conio.h"
+using namespace std;
+int invertir(int n);
+int contardigitos(int n);
+int sumardigitosimpares(int n);
+int main (void)
+{
+	int nro,r,opcion;
+	cout<<"introdusca un numero natura: ";
+	cin>>nro;
+	do{
+		cout<<endl<<endl<<"********************MENU**************";
+		cout<<endl<<endl<<"1.-CONTAR DIGITOS";
+		cout<<endl<<endl<<"2.-SUMAR DIGITOS IMPARES";
+		cout<<endl<<endl<<"3.-INVERTIR NUMERO";
+		cout<<endl<<endl<<"0.-SALIR";
+		cout<<endl<<endl<<"SALECCIONE UNA OPCION";
+		cin>>opcion;
+		switch(opcion){
+		case 1: r=contardigitos(nro);
+			    cout<<"la cantidad de digitos es: "<<nro<<", es -->>: "<<r;
+				//break;
+		case 2: r=sumardigitosimpares(nro);
+			    cout<<"la suma de  digitos impares es: "<<nro<<", es -->>: "<<r;
+				break;
+		case 3: r=invertir(nro);
+			    cout<<"la cantidad de digitos es: "<<nro<<", es -->>: "<<r;
+				break;
+		}
+	}while(opcion!=0);
+
+	getch();
+}
+
+	int invertir(int n){
+		int newnro=0,d;
+		while(n>0){
+			d=n%10;
+			newnro=newnro*10+d;
+			n=n/10;
+		}
+		return(newnro);
+		}
+
+	int contardigitos(int n){
+		int c=0;
+		while(n>0){
+			n=n/10;
+			c++;
+		}
+		return(c);
+	}
+
+	int sumardigitosimpares(int n){
+		int d, s=0;
+		while(n>0){
+			d=n%10;
+			if(d%2!=0){
+				s=s+d;
+			}
+			n=n/10;
+		}
+		return (s);
+	}
